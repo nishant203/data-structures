@@ -1,7 +1,7 @@
 export class LinkedList {
   private head: Node;
   private tail: Node;
-  private length: number;
+  public length: number;
 
   constructor(value: any) {
     this.head = new Node(value);
@@ -36,6 +36,20 @@ export class LinkedList {
       leadNode.next = newNode;
       this.length++;
     }
+  }
+  /// remove node based on index
+  public remove(index: number) {
+    if (index < 0 || index > this.length) {
+      throw new Error("Index out of range");
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+    } else {
+      const leadNode = this.traverseToIndex(index - 1);
+      const unwantedNode = leadNode.next;
+      leadNode.next = unwantedNode.next;
+    }
+    this.length--;
   }
   // find node based on index
   private traverseToIndex(index: number): Node {

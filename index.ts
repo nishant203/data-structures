@@ -17,6 +17,6 @@ appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 const linkedList = new LinkedList(50);
 linkedList.insert(1, 70);
 linkedList.insert(1, 69);
-linkedList.insert(100, 101);
+linkedList.remove(0);
 console.log(linkedList);
 ///End
